@@ -1,0 +1,14 @@
+def is_prime(n):
+    for i in range(2, n):
+       if n % i == 0:
+           return False
+    return True
+
+
+def twin_primes(start, end):
+    twin_prime = []
+    twin_prime = [(i, i + 2) for i in range(start, end - 1) if is_prime(i) and is_prime(i + 2)]
+    return twin_prime
+
+
+print(twin_primes(int(argv[1], int(argv[2]))
