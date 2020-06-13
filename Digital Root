@@ -1,0 +1,14 @@
+def digital_root(number_):
+    if len(number_) == 1:
+        return number_
+    else:
+         return digital_root(str(sum(number_)))
+
+def sum(number):
+    sum_ = 0
+    for digit in number:
+        sum_ += int(digit)
+    return sum_
+
+word = "123"
+print(digital_root(str(word)))
