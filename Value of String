@@ -44,6 +44,18 @@ print(solve("1A0B1C0A1"))
 
 
 
+#alternative better method
+# using dictionaries to limit if else
+'''
+
+def compute(string):
+    first = int(string[0])
+    second = int(string[2])
+    return {"A": first & second , "B": first | second , "C": first ^ second}[string[1]]
+'''
+
+
+
 
 
 
