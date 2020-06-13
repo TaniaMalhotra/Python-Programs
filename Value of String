@@ -1,0 +1,52 @@
+'''Given a string consisting of only 0, 1, A, B, C where
+A = AND
+B = OR
+C = XOR
+Write a function to calculate the value of the string assuming no order of precedence and evaluation is done from left to right.
+Note:
+Return -1, if the string is not a valid string. For example, '1AA0' is not a valid string and 'C1B11B0A0' is a valid string.'''
+
+
+def validate(word):
+    if word.startswith('A') or word.startswith('B') or word.startswith('C'):
+        return False
+    if word.endswith('A') or word.endswith('B') or word.endswith('C'):
+        return False
+    for i in range(0, len(word)):
+        if word[i].isalpha() and word[i+1].isalpha():
+            return False
+    return True
+
+
+
+def solve(word):
+
+    if validate(word):
+        for i in range(0,len(word)):
+            if word[i] == "C":
+                value = str(int(word[i-1]) ^ int(word[i+1]))
+                print(value + " " + "in C")
+            elif word[i] == "B":
+                value = str(int(word[i-1]) or int(word[i+1]))
+                print(value + " " + "in B")
+            elif word[i] == "A":
+                value = str(int(word[i-1]) and int(word[i+1]))
+                print(value + " " + "in A")
+            else :
+                continue
+             string = word[i-1: i+2]
+            print("To be replaced " + string)
+            print("new word " + " " + word.replace(string , value))
+            return solve(word.replace(string , value))
+        return word
+
+print(solve("1A0B1C0A1"))
+
+
+
+
+
+
+
+
+
