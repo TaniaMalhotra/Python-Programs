@@ -1,0 +1,19 @@
+'''An anagram is a word formed by rearranging the letters of a different word,
+typically using all the original letters exactly once.
+For example, anagrams of word cat are tac, act.
+Given an array of words, write a function to return a group anagrams.
+Input: List of words
+Sample Input: [“tar”, “State”, “rat”, “art”, “Taste”, “dream”]
+Sample Output: [[‘state’, ‘taste’], [‘dream’], [‘tar’, ‘rat’, ‘art’]]'''
+
+
+def groupAnagrams(words):
+    
+      result = {}
+      for i in words:
+         x = "".join(sorted(i)) //sorts the word alphabetically
+         if x in result:      //the keys in dict are sorted alphabetical words and the values are all the words that match with it
+            result[x].append(i)
+         else:
+            result[x] = [i]
+      return list(result.values())
