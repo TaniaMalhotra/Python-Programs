@@ -1,0 +1,21 @@
+'''Given a list of integers S and a target number k, write a function that returns a subset of S that adds up to k. If such a subset cannot be made, then return None.
+Integers can appear more than once in the list. You may assume all numbers in the list are positive.
+Input: list, integer
+Output: list
+Sample Input: [12, 1, 61, 5, 9, 2], 24
+Sample Output: [12, 9, 2, 1]
+'''
+
+
+def subset(array, k):
+    list1 = []
+    for i in range(len(array)):
+        comb = list(combinations(array, i))
+        for j in comb:
+            if sum(j) == k:
+                list1.append(j)
+    return list1
+
+
+print(subset([1,2,3], 3))
+
